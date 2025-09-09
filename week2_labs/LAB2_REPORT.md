@@ -58,12 +58,12 @@ In this activity, I learned how to set up my GitHub account and use commands lik
 ## Screenshots
 
 ### Git Repository
-- [ ] GitHub repository with commit history
-- [ ] Local git log showing commits
+- ![alt text](<GitHub repository with commit history.png>)
+- ![alt text](<Local git log showing commits.png>)
 
 ### GUI Applications
-- [ ] hello_flet.py running with all features
-- [ ] personal_info_gui.py with filled form and generated profile
+- ![alt text](<hello_flet.py running with all features.png>)
+- ![alt text](<personal_info_gui.py with filled form and generated profile.png>)
 
 ## Future Enhancements
 
