@@ -37,7 +37,19 @@ def main(page: ft.Page):
         width=300,
         border_color=ft.Colors.BLUE_300
     )
-    
+
+    id_input = ft.TextField(
+        label="Enter student ID",
+        width=300,
+        border_color=ft.Colors.BLUE_300
+    )
+
+    program_input = ft.TextField(
+        label="Enter your Program",
+        width=300,
+        border_color=ft.Colors.BLUE_300
+    )
+
     # Output text for greetings
     greeting_text = ft.Text(
         "",
@@ -56,6 +68,8 @@ def main(page: ft.Page):
     
     def clear_all(e):
         name_input.value = ""
+        id_input.value = ""
+        program_input.value = ""
         greeting_text.value = ""
         page.update()
     
@@ -65,22 +79,29 @@ def main(page: ft.Page):
             "Flet allows you to create beautiful GUI applications using Python!\n"
             f"Current time: {datetime.now().strftime('%I:%M:%S %p')}"
         )
-        
-        # Create dialog
+
+        # Create the dialog
         dialog = ft.AlertDialog(
             title=ft.Text("Application Information"),
             content=ft.Text(info_text),
             actions=[
-                ft.TextButton("Close", on_click=lambda e: close_dialog(dialog))
+                ft.TextButton(
+                    "Close",
+                    on_click=lambda e: close_dialog(dialog)
+                )
             ]
         )
+
+        # Attach to page and open
         page.dialog = dialog
         dialog.open = True
         page.update()
-    
-    def close_dialog(dialog):
-        dialog.open = False
+
+    def close_dialog(dlg):
+        dlg.open = False
         page.update()
+
+
     
     # Buttons with styling
     hello_button = ft.ElevatedButton(
@@ -116,7 +137,7 @@ def main(page: ft.Page):
                 student_info,
                 ft.Divider(height=20),
                 ft.Text("Interactive Section:", size=16, weight=ft.FontWeight.BOLD),
-                name_input,
+                name_input, id_input, program_input,
                 ft.Row(
                     [hello_button, clear_button, info_button],
                     alignment=ft.MainAxisAlignment.CENTER,
